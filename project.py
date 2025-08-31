@@ -54,3 +54,14 @@ model.fit(X_train, y_train)
 
 y_pred = model.predict(X_test)
 print("Accuracy:", accuracy_score(y_test, y_pred))
+
+import matplotlib.pyplot as plt
+
+# Count distribution of predicted labels
+labels_count = pd.Series(y_pred).value_counts()
+
+# Plot Pie Chart
+plt.figure(figsize=(6,6))
+plt.pie(labels_count, labels=labels_count.index, autopct='%1.1f%%', startangle=90)
+plt.title("Sentiment Distribution of News Headlines")
+plt.show()
